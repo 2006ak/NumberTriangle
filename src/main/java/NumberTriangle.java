@@ -87,7 +87,16 @@ public class NumberTriangle {
      * a
      */
     public int retrieve(String path) {
-        return -1;
+        NumberTriangle curr = this;
+        for (int i = 0; i < path.length(); i++){
+            if (path.charAt(i) == 'l') {
+                curr = curr.left;
+            }
+            if (path.charAt(i) == 'r') {
+                curr = curr.right;
+            }
+        }
+        return curr.root;
     }
 
     /** Read in the NumberTriangle structure from a file.
